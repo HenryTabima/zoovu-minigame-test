@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Welcome from './components/welcome/welcome';
+import Game from './components/game/game';
+import { useGameMachine } from './services/game-service';
+import GameOver from './components/game-over/game-over';
 
 function App() {
+  const [state, send] = useGameMachine();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {state.matches('initializingPlayer') && (
+        <Welcome onNameSubmit={(name) => send('SET_PLAYER_NAME', { name })} />
+      )}
+      {!state.matches('initializingPlayer') && <Game />}
+      {state.matches('gameOver') && <GameOver />}
     </div>
   );
 }
