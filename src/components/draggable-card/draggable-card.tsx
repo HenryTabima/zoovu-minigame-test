@@ -26,7 +26,7 @@ function DraggableCard({
   });
   return (
     <StyledDraggableCard opacity={opacity} ref={drag}>
-      <img src={`zoovu-${letter}.svg`} />
+      <img src={`zoovu-${letter}.svg`} alt={`zoovu letter {letter}`} />
     </StyledDraggableCard>
   );
 }
