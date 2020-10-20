@@ -2,6 +2,8 @@
 
 Mini game made with javascript for organizing the Zoovu logo as fast as you can.
 
+live example: https://objective-jepsen-38a6b0.netlify.app/
+
 showcase: https://www.youtube.com/watch?v=4Bdq9B6quSY
 
 ## Tecnical description
